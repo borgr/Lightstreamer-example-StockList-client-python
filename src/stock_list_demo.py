@@ -257,7 +257,7 @@ class LSClient(object):
         else:
             lines = self._stream_connection.readlines()
             lines.insert(0, stream_line)
-            log.error("Server response error: \n%s", join(lines))
+            log.error("Server response error: \n%s", " ".join((str(x) for x in lines))
             raise IOError()
 
     def _join(self):
